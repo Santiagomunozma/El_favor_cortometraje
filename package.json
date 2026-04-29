@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "npm --prefix el-favor-bitacora run dev",
+    "build": "npm --prefix el-favor-bitacora run build",
+    "preview": "npm --prefix el-favor-bitacora run preview"
   },
   "dependencies": {
     "lucide-react": "^1.11.0",
