@@ -1,5 +1,5 @@
 import { useState } from "react";
-import castData from "../../data/cast.json";
+import castData from "../../Data/cast.json";
 import type { CastMember, CastRole } from "../../Types/index";
 import CastCard from "./CastCard";
 import { useCarousel } from "../../Hooks/useCarousel";
