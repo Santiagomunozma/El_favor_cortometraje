@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Nombre Apellido",
+    "role": "Directora",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Nombre Apellido",
+    "role": "Productora",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Nombre Apellido",
+    "role": "Guionista",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Nombre Apellido",
+    "role": "Director de Fotografía",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Nombre Apellido",
+    "role": "Sonidista",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Nombre Apellido",
+    "role": "Director de Fotografía",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Nombre Apellido",
+    "role": "Director de Fotografía",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Nombre Apellido",
+    "role": "Director de Fotografía",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Nombre Apellido",
+    "role": "Director de Fotografía",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Nombre Apellido",
+    "role": "Director de Fotografía",
+    "bio": "Breve descripción de su rol en el proyecto.",
+    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  }
+]

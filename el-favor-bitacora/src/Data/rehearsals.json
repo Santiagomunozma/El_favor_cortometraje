@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Primera lectura del guión",
+    "description": "Primer encuentro del elenco con el material. Lectura en mesa y primeras impresiones de los personajes.",
+    "videoUrl": "https://drive.google.com/file/d/ID_DEL_VIDEO/view",
+    "date": "2026-04-12"
+  },
+  {
+    "id": 2,
+    "title": "Trabajo de escena — Bar",
+    "description": "Exploración de la dinámica de poder entre Héctor y Juan David en el espacio del bar.",
+    "videoUrl": "https://drive.google.com/file/d/ID_DEL_VIDEO/view",
+    "date": "2026-04-18"
+  }
+]
