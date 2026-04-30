@@ -1,7 +1,8 @@
-import teamData from "../../Data/team.json";
+import teamData from "../../data/team.json";
 import type { TeamMember } from "../../Types/index";
 import TeamCard from "./TeamCard";
 import { useCarousel } from "../../Hooks/useCarousel";
+import { useScrollReveal } from "../../Hooks/useScrollReveal";
 
 const team = teamData as TeamMember[];
 
@@ -14,6 +15,7 @@ export default function Team() {
     scrollTo,
     dragHandlers,
   } = useCarousel();
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
 
   return (
     <section
@@ -21,7 +23,16 @@ export default function Team() {
       style={{ backgroundColor: "#0D0D0D", padding: "100px 0" }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 32px" }}>
-        <div style={{ textAlign: "center", marginBottom: "64px" }}>
+        <div
+          ref={titleRef}
+          style={{
+            textAlign: "center",
+            marginBottom: "64px",
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? "translateY(0)" : "translateY(40px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
+          }}
+        >
           <p
             style={{
               fontFamily: "'Inter', sans-serif",
@@ -90,10 +101,7 @@ export default function Team() {
           {team.map((member) => (
             <div
               key={member.id}
-              style={{
-                flex: "0 0 85vw",
-                maxWidth: "320px",
-              }}
+              style={{ flex: "0 0 85vw", maxWidth: "280px" }}
             >
               <TeamCard member={member} />
             </div>

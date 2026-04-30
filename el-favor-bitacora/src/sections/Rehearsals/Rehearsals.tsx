@@ -1,8 +1,8 @@
 import rehearsalsData from "../../Data/rehearsals.json";
 import type { Rehearsal } from "../../Types/index";
+import { useScrollReveal } from "../../Hooks/useScrollReveal";
 
 const rehearsals = rehearsalsData as Rehearsal[];
-
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("es-CO", {
     day: "numeric",
@@ -12,13 +12,24 @@ function formatDate(dateStr: string) {
 }
 
 export default function Rehearsals() {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
+
   return (
     <section
       id="ensayos"
       style={{ backgroundColor: "#0D0D0D", padding: "100px 32px" }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "64px" }}>
+        <div
+          ref={titleRef}
+          style={{
+            textAlign: "center",
+            marginBottom: "64px",
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? "translateY(0)" : "translateY(40px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
+          }}
+        >
           <p
             style={{
               fontSize: "11px",

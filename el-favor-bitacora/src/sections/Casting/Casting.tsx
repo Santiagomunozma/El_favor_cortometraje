@@ -3,11 +3,13 @@ import castData from "../../Data/cast.json";
 import type { CastMember, CastRole } from "../../Types/index";
 import CastCard from "./CastCard";
 import { useCarousel } from "../../Hooks/useCarousel";
+import { useScrollReveal } from "../../Hooks/useScrollReveal";
 
 const cast = castData as unknown as CastMember[];
 type Filter = "Todos" | CastRole;
 
 export default function Casting() {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
   const [filter, setFilter] = useState<Filter>("Todos");
   const {
     ref,
@@ -27,7 +29,16 @@ export default function Casting() {
       style={{ backgroundColor: "#111111", padding: "100px 0" }}
     >
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 32px" }}>
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+        <div
+          ref={titleRef}
+          style={{
+            textAlign: "center",
+            marginBottom: "64px",
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? "translateY(0)" : "translateY(40px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
+          }}
+        >
           <p
             style={{
               fontFamily: "'Inter', sans-serif",

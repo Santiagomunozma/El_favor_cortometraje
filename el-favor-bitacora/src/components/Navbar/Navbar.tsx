@@ -43,6 +43,22 @@ export default function Navbar() {
 
   return (
     <>
+      <style>{`
+        .logo-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0%;
+          height: 1px;
+          background-color: #C0392B;
+          transition: width 0.3s ease;
+        }
+        .logo-link:hover::after {
+          width: 100%;
+        }
+      `}</style>
+
       <header
         style={{
           position: "fixed",
@@ -63,12 +79,15 @@ export default function Navbar() {
       >
         <a
           href="#inicio"
+          className="logo-link"
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
             fontSize: "22px",
             color: "#F5F0EB",
             letterSpacing: "2px",
             textDecoration: "none",
+            position: "relative",
+            paddingBottom: "3px",
           }}
         >
           El <span style={{ color: "#C0392B" }}>Favor</span>
@@ -186,7 +205,11 @@ export default function Navbar() {
                 <li key={href}>
                   <a
                     href={href}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMenuOpen(false);
+                      window.location.href = href;
+                    }}
                     style={{
                       display: "block",
                       padding: "14px 0",

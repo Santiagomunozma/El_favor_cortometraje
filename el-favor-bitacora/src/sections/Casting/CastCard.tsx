@@ -53,7 +53,16 @@ export default function CastCard({ member }: Props) {
           <img
             src={member.photo}
             alt={member.name}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              transition: "transform 0.4s ease",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "scale(1.05)")
+            }
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           />
         ) : (
           <span
