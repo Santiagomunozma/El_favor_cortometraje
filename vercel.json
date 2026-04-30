@@ -1,0 +1,5 @@
+{
+  "installCommand": "cd el-favor-bitacora && npm install",
+  "buildCommand": "cd el-favor-bitacora && npm run build",
+  "outputDirectory": "el-favor-bitacora/dist"
+}
