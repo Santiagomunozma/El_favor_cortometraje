@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd el-favor-bitacora && npm install",
-  "buildCommand": "cd el-favor-bitacora && npm run build",
-  "outputDirectory": "el-favor-bitacora/dist"
+  "installCommand": "if [ -f package.json ]; then npm install; elif [ -f el-favor-bitacora/package.json ]; then cd el-favor-bitacora && npm install; else echo 'No package.json found' && exit 1; fi",
+  "buildCommand": "if [ -f package.json ]; then npm run build; elif [ -f el-favor-bitacora/package.json ]; then cd el-favor-bitacora && npm run build && cd .. && rm -rf dist && cp -r el-favor-bitacora/dist dist; else echo 'No build project found' && exit 1; fi",
+  "outputDirectory": "dist"
 }
