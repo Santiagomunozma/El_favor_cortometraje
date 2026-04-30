@@ -1,4 +1,4 @@
-import teamData from "../../data/team.json";
+import teamData from "../../Data/team.json";
 import type { TeamMember } from "../../Types/index";
 import TeamCard from "./TeamCard";
 import { useCarousel } from "../../Hooks/useCarousel";
