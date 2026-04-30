@@ -1,4 +1,8 @@
+import { useIsMobile } from "../../Hooks/useIsMobile";
+
 export default function Hero() {
+  const isMobile = useIsMobile();
+
   return (
     <section
       id="inicio"
@@ -9,25 +13,25 @@ export default function Hero() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "96px 24px",
+        padding: isMobile ? "80px 24px 60px" : "96px 24px",
       }}
     >
       <style>{`
-          .hero-content > * {
-            animation: fadeUp 0.7s ease-out both;
-          }
-          .hero-content > *:nth-child(1) { animation-delay: 0s; }
-          .hero-content > *:nth-child(2) { animation-delay: 0.1s; }
-          .hero-content > *:nth-child(3) { animation-delay: 0.2s; }
-          .hero-content > *:nth-child(4) { animation-delay: 0.35s; }
-          .hero-content > *:nth-child(5) { animation-delay: 0.45s; }
-          .hero-content > *:nth-child(6) { animation-delay: 0.55s; }
-          .hero-content > *:nth-child(7) { animation-delay: 0.7s; }
-          @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-        `}</style>
+        .hero-content > * {
+          animation: fadeUp 0.7s ease-out both;
+        }
+        .hero-content > *:nth-child(1) { animation-delay: 0s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.2s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.35s; }
+        .hero-content > *:nth-child(5) { animation-delay: 0.45s; }
+        .hero-content > *:nth-child(6) { animation-delay: 0.55s; }
+        .hero-content > *:nth-child(7) { animation-delay: 0.7s; }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
 
       <div
         className="hero-content"
@@ -43,11 +47,11 @@ export default function Hero() {
             fontSize: "11px",
             letterSpacing: "4px",
             marginBottom: "16px",
+            textAlign: "center",
           }}
         >
           DRAMA · CORTOMETRAJE
         </p>
-
         <div
           style={{
             width: "48px",
@@ -56,11 +60,10 @@ export default function Hero() {
             marginBottom: "20px",
           }}
         />
-
         <h1
           style={{
             color: "#F5F0EB",
-            fontSize: "clamp(72px, 15vw, 120px)",
+            fontSize: isMobile ? "72px" : "clamp(72px, 15vw, 120px)",
             fontFamily: "'Bebas Neue', sans-serif",
             lineHeight: 1,
             marginBottom: "12px",
@@ -69,19 +72,18 @@ export default function Hero() {
         >
           El Favor
         </h1>
-
         <p
           style={{
             color: "#B8860B",
-            fontSize: "18px",
+            fontSize: isMobile ? "16px" : "18px",
             fontStyle: "italic",
             fontFamily: "'Playfair Display', serif",
             marginBottom: "32px",
+            textAlign: "center",
           }}
         >
           Lealtad. Culpa. Verdad.
         </p>
-
         <div
           style={{
             width: "1px",
@@ -90,7 +92,6 @@ export default function Hero() {
             marginBottom: "32px",
           }}
         />
-
         <p
           style={{
             color: "#E8E0D5",
@@ -99,14 +100,14 @@ export default function Hero() {
             textAlign: "center",
             maxWidth: "520px",
             marginBottom: "40px",
+            padding: isMobile ? "0 8px" : "0",
           }}
         >
           Héctor sale de prisión tras pagar por un crimen que no cometió. Su
           jefe Juan David lo somete a favores sin límite. Una noche, un
           accidente cambia todo — y la víctima resulta ser su propia hija.
         </p>
-
-        <div style={{ display: "flex", gap: "40px" }}>
+        <div style={{ display: "flex", gap: isMobile ? "24px" : "40px" }}>
           {[
             { label: "Género", value: "Drama" },
             { label: "Formato", value: "Corto" },

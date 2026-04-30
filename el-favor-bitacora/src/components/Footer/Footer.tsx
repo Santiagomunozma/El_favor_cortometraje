@@ -1,10 +1,14 @@
+import { useIsMobile } from "../../Hooks/useIsMobile";
+
 export default function Footer() {
+  const isMobile = useIsMobile();
+
   return (
     <footer
       style={{
         backgroundColor: "#080808",
         borderTop: "0.5px solid #2C2C2C",
-        padding: "48px 32px 32px",
+        padding: isMobile ? "40px 24px 28px" : "48px 32px 32px",
         fontFamily: "'Inter', sans-serif",
       }}
     >
@@ -12,10 +16,10 @@ export default function Footer() {
         <div
           style={{
             display: "flex",
+            flexDirection: isMobile ? "column" : "row",
             justifyContent: "space-between",
-            alignItems: "flex-start",
+            alignItems: isMobile ? "flex-start" : "flex-start",
             marginBottom: "40px",
-            flexWrap: "wrap",
             gap: "24px",
           }}
         >
@@ -34,8 +38,7 @@ export default function Footer() {
               Lealtad. Culpa. Verdad.
             </p>
           </div>
-
-          <div style={{ textAlign: "right" }}>
+          <div style={{ textAlign: isMobile ? "left" : "right" }}>
             <p
               style={{
                 fontSize: "9px",
@@ -47,20 +50,16 @@ export default function Footer() {
             >
               Contacto
             </p>
-
-            <div
+            <a
+              href="mailto:elfavorcorto@gmail.com"
               style={{
                 fontSize: "13px",
                 color: "#C0392B",
                 textDecoration: "none",
-                fontFamily: "'Inter', sans-serif",
-                transition: "color 0.2s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#8B0000")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#C0392B")}
             >
-              elfavorcortometraje@gmail.com
-            </div>
+              elfavorcorto@gmail.com
+            </a>
           </div>
         </div>
 
@@ -73,12 +72,18 @@ export default function Footer() {
           }}
         />
 
+        <div style={{ marginBottom: "32px" }}>
+          <p style={{ fontSize: "11px", color: "#2C2C2C" }}>
+            Desarrollo web{" "}
+            <span style={{ color: "#4A4A4A" }}>Santiago Muñoz</span>
+          </p>
+        </div>
+
         <div
           style={{
             display: "flex",
+            flexDirection: isMobile ? "column" : "row",
             justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
             gap: "8px",
           }}
         >
@@ -89,19 +94,6 @@ export default function Footer() {
             Proyecto universitario · Medellín, Colombia
           </p>
         </div>
-
-        <p
-          style={{
-            marginTop: "10px",
-            textAlign: "right",
-            fontSize: "10px",
-            color: "#1F1F1F",
-            letterSpacing: "0.4px",
-          }}
-        >
-          Desarrollador web:{" "}
-          <span style={{ color: "#333333" }}>Santiago Macchi</span>
-        </p>
       </div>
     </footer>
   );
