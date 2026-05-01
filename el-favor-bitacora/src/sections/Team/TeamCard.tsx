@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import type { TeamMember } from '../../types'
+import type { TeamMember } from '../../Types'
+import { borders, colors, fontSize, fonts, letterSpacing, lineHeight, radius, space, transition } from '../../lib/designTokens'
 
 interface Props {
   member: TeamMember
@@ -13,20 +14,20 @@ export default function TeamCard({ member, index }: Props) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' }}
       style={{
-        backgroundColor: '#2C2C2C',
-        border: '0.5px solid #4A4A4A',
-        borderRadius: '12px',
+        backgroundColor: colors.bgCardAlt,
+        border: `${borders.subtle} ${colors.borderMuted}`,
+        borderRadius: radius.lg,
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        transition: 'border-color 0.3s ease',
+        transition: transition.border,
       }}
-      onMouseEnter={e => (e.currentTarget.style.borderColor = '#C0392B')}
-      onMouseLeave={e => (e.currentTarget.style.borderColor = '#4A4A4A')}
+      onMouseEnter={e => (e.currentTarget.style.borderColor = colors.accent)}
+      onMouseLeave={e => (e.currentTarget.style.borderColor = colors.borderMuted)}
     >
       <div style={{
         width: '100%', aspectRatio: '1 / 1',
-        backgroundColor: '#0D0D0D', overflow: 'hidden',
+        backgroundColor: colors.bgBase, overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         {member.photo ? (
@@ -35,38 +36,38 @@ export default function TeamCard({ member, index }: Props) {
             alt={member.name}
             style={{
               width: '100%', height: '100%', objectFit: 'cover',
-              transition: 'transform 0.4s ease',
+              transition: transition.transform,
             }}
             onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
             onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
           />
         ) : (
           <span style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: '48px', color: '#2C2C2C',
+            fontFamily: fonts.heading,
+            fontSize: fontSize.displaySm, color: colors.border,
           }}>
             {member.name.charAt(0)}
           </span>
         )}
       </div>
 
-      <div style={{ padding: '20px' }}>
+      <div style={{ padding: space['3xl'] }}>
         <p style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '10px', letterSpacing: '2px',
-          textTransform: 'uppercase', color: '#C0392B', marginBottom: '6px',
+          fontFamily: fonts.body,
+          fontSize: fontSize.xs, letterSpacing: letterSpacing.normal,
+          textTransform: 'uppercase', color: colors.accent, marginBottom: space.sm,
         }}>
           {member.role}
         </p>
         <h3 style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: '22px', color: '#F5F0EB', marginBottom: '8px',
+          fontFamily: fonts.heading,
+          fontSize: fontSize['4xl'], color: colors.textPrimary, marginBottom: space.md,
         }}>
           {member.name}
         </h3>
         <p style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '13px', color: '#4A4A4A', lineHeight: 1.7,
+          fontFamily: fonts.body,
+          fontSize: fontSize.base, color: colors.textMuted, lineHeight: lineHeight.snug,
         }}>
           {member.bio}
         </p>

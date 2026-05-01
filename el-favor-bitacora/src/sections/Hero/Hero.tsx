@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
-import { useIsMobile } from '../../hooks/useIsMobile'
+import { useIsMobile } from '../../Hooks/useIsMobile'
+import { colors, fontSize, fonts, layout, letterSpacing, lineHeight, size, space } from '../../lib/designTokens'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay, ease: 'easeOut' }
+    transition: { duration: 0.7, delay, ease: 'easeOut' as const }
   })
 }
 
@@ -16,33 +17,46 @@ export default function Hero() {
   return (
     <section id="inicio" style={{
       minHeight: '100vh',
-      backgroundColor: '#0D0D0D',
+      backgroundColor: colors.bgBase,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: isMobile ? '80px 24px 60px' : '96px 24px',
+      padding: isMobile ? `${space['9xl']} ${space['4xl']} 60px` : `${space['10xl']} ${space['4xl']}`,
     }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
         <motion.p
-          style={{ color: '#C0392B', fontSize: '11px', letterSpacing: '4px', marginBottom: '16px', textAlign: 'center' }}
+          style={{
+            color: colors.accent,
+            fontSize: fontSize.sm,
+            letterSpacing: letterSpacing.wide,
+            marginBottom: space.xl,
+            textAlign: 'center',
+          }}
           variants={fadeUp} initial="hidden" animate="visible" custom={0}
         >
           DRAMA · CORTOMETRAJE
         </motion.p>
 
         <motion.div
-          style={{ width: '48px', height: '1px', backgroundColor: '#C0392B', marginBottom: '20px' }}
+          style={{
+            width: size.dividerAccentW,
+            height: size.dividerAccentH,
+            backgroundColor: colors.accent,
+            marginBottom: space['3xl'],
+          }}
           variants={fadeUp} initial="hidden" animate="visible" custom={0.1}
         />
 
         <motion.h1
           style={{
-            color: '#F5F0EB',
-            fontSize: isMobile ? '72px' : 'clamp(72px, 15vw, 120px)',
-            fontFamily: "'Bebas Neue', sans-serif",
-            lineHeight: 1, marginBottom: '12px', textAlign: 'center',
+            color: colors.textPrimary,
+            fontSize: isMobile ? fontSize.heroTitleMobile : fontSize.heroTitle,
+            fontFamily: fonts.heading,
+            lineHeight: lineHeight.none,
+            marginBottom: space.lg,
+            textAlign: 'center',
           }}
           variants={fadeUp} initial="hidden" animate="visible" custom={0.2}
         >
@@ -51,9 +65,12 @@ export default function Hero() {
 
         <motion.p
           style={{
-            color: '#B8860B', fontSize: isMobile ? '16px' : '18px',
-            fontStyle: 'italic', fontFamily: "'Playfair Display', serif",
-            marginBottom: '32px', textAlign: 'center',
+            color: colors.highlight,
+            fontSize: isMobile ? fontSize.xl : fontSize['2xl'],
+            fontStyle: 'italic',
+            fontFamily: fonts.serif,
+            marginBottom: space['5xl'],
+            textAlign: 'center',
           }}
           variants={fadeUp} initial="hidden" animate="visible" custom={0.35}
         >
@@ -61,15 +78,24 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          style={{ width: '1px', height: '40px', backgroundColor: '#2C2C2C', marginBottom: '32px' }}
+          style={{
+            width: size.dividerVerticalW,
+            height: size.dividerVerticalH,
+            backgroundColor: colors.border,
+            marginBottom: space['5xl'],
+          }}
           variants={fadeUp} initial="hidden" animate="visible" custom={0.45}
         />
 
         <motion.p
           style={{
-            color: '#E8E0D5', fontSize: '15px', lineHeight: 1.8,
-            textAlign: 'center', maxWidth: '520px', marginBottom: '40px',
-            padding: isMobile ? '0 8px' : '0',
+            color: colors.light,
+            fontSize: fontSize.lg,
+            lineHeight: lineHeight.relaxed,
+            textAlign: 'center',
+            maxWidth: layout.heroTextMax,
+            marginBottom: space['6xl'],
+            padding: isMobile ? `0 ${space.md}` : '0',
           }}
           variants={fadeUp} initial="hidden" animate="visible" custom={0.55}
         >
@@ -79,7 +105,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          style={{ display: 'flex', gap: isMobile ? '24px' : '40px' }}
+          style={{ display: 'flex', gap: isMobile ? space['4xl'] : space['6xl'] }}
           variants={fadeUp} initial="hidden" animate="visible" custom={0.7}
         >
           {[
@@ -88,8 +114,15 @@ export default function Hero() {
             { label: 'Ciudad', value: 'Medellín' },
           ].map(({ label, value }) => (
             <div key={label} style={{ textAlign: 'center' }}>
-              <p style={{ color: '#4A4A4A', fontSize: '10px', letterSpacing: '2px', marginBottom: '4px' }}>{label}</p>
-              <p style={{ color: '#F5F0EB', fontSize: '22px', fontFamily: "'Bebas Neue', sans-serif" }}>{value}</p>
+              <p style={{
+                color: colors.textMuted,
+                fontSize: fontSize.xs,
+                letterSpacing: letterSpacing.normal,
+                marginBottom: space.xs,
+              }}>
+                {label}
+              </p>
+              <p style={{ color: colors.textPrimary, fontSize: fontSize['4xl'], fontFamily: fonts.heading }}>{value}</p>
             </div>
           ))}
         </motion.div>

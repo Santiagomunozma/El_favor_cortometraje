@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { useInView } from '../../hooks/useInView'
+import { useInView } from '../../Hooks/useInView'
+import { colors, fontSize, fonts, layout, letterSpacing, lineHeight, space } from '../../lib/designTokens'
 
 interface Props {
   label: string
@@ -11,7 +12,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (delay: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.7, delay, ease: 'easeOut' }
+    transition: { duration: 0.7, delay, ease: 'easeOut' as const }
   })
 }
 
@@ -19,12 +20,15 @@ export default function SectionTitle({ label, title, description }: Props) {
   const { ref, inView } = useInView()
 
   return (
-    <div ref={ref} style={{ textAlign: 'center', marginBottom: '64px' }}>
+    <div ref={ref} style={{ textAlign: 'center', marginBottom: space['8xl'] }}>
       <motion.p
         style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '11px', letterSpacing: '4px',
-          textTransform: 'uppercase', color: '#C0392B', marginBottom: '16px',
+          fontFamily: fonts.body,
+          fontSize: fontSize.sm,
+          letterSpacing: letterSpacing.wide,
+          textTransform: 'uppercase',
+          color: colors.accent,
+          marginBottom: space.xl,
         }}
         variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0}
       >
@@ -33,9 +37,11 @@ export default function SectionTitle({ label, title, description }: Props) {
 
       <motion.h2
         style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(40px, 6vw, 72px)',
-          color: '#F5F0EB', lineHeight: 1, marginBottom: '16px',
+          fontFamily: fonts.heading,
+          fontSize: fontSize.sectionTitle,
+          color: colors.textPrimary,
+          lineHeight: lineHeight.none,
+          marginBottom: space.xl,
         }}
         variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0.15}
       >
@@ -45,9 +51,12 @@ export default function SectionTitle({ label, title, description }: Props) {
       {description && (
         <motion.p
           style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '15px', color: '#4A4A4A',
-            maxWidth: '480px', margin: '0 auto', lineHeight: 1.7,
+            fontFamily: fonts.body,
+            fontSize: fontSize.lg,
+            color: colors.textMuted,
+            maxWidth: layout.sectionDescMax,
+            margin: '0 auto',
+            lineHeight: lineHeight.snug,
           }}
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0.3}
         >
