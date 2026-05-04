@@ -75,7 +75,7 @@
     "role": ["Juan David", "Héctor"],
     "email": "chucho413@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=o3YnUMyO7eY&t=2s",
-    "castingUrl": "",
+    "castingUrl": "https://drive.google.com/file/d/13nvgy9FSiPTa87Pj9goGtvpGpqY_YZu8/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473149/David_Gil_msgxrq.jpg",
     "stage": "video_sent"
   },
@@ -85,7 +85,7 @@
     "role": ["Juan David"],
     "email": "felipegiraldo2628@gmail.com",
     "reelUrl": "",
-    "castingUrl": "",
+    "castingUrl": "https://drive.google.com/file/d/1RWa0zMrX_k11BcycarWhAjXdSakaly0g/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473446/Felipe_Giraldo_delrx5.png",
     "stage": "contacted"
   },
@@ -125,7 +125,7 @@
     "role": [""],
     "email": "hakas01@gmail.com",
     "reelUrl": "",
-    "castingUrl": "",
+    "castingUrl": "https://drive.google.com/file/d/1DTQFxR0vzSBHj84W3EsbSZ1FrcZSnPg3/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777474153/Hammer_hakas_mwjv35.jpg",
     "stage": "applied"
   },
@@ -135,17 +135,17 @@
     "role": [""],
     "email": "ador79@gmail.com",
     "reelUrl": "",
-    "castingUrl": "",
+    "castingUrl": "https://drive.google.com/file/d/1dPd0cE6Aipkz1ndBCsjUowUYmmSJbF39/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777474318/Armando_R%C3%ADos_jf6j5k.jpg",
     "stage": "applied"
   },
   {
     "id": 15,
-    "name": "Manuel Grajales",
+    "name": "Juan Grajales",
     "role": ["Héctor"],
     "email": "",
     "reelUrl": "",
-    "castingUrl": "",
+    "castingUrl": "https://drive.google.com/file/d/18aVlm1nDzfZ4PANdD6DNANMFDlNtBtn1/view?usp=drive_link",
     "photo": "",
     "stage": "applied"
   },
