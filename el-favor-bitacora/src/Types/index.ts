@@ -8,6 +8,7 @@ export interface CastMember {
   role: CastRole[];
   email: string;
   reelUrl: string;
+  castingUrl: string;
   photo: string;
   stage: CastStage;
 }

@@ -5,6 +5,7 @@
     "role": [""],
     "email": "joargo87@gmail.com",
     "reelUrl": "",
+    "castingUrl": "",
     "photo": "",
     "stage": "applied"
   },
@@ -14,6 +15,7 @@
     "role": ["Juan David"],
     "email": "ciudadceleste0@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=1ZtC-p33sNE",
+    "castingUrl": "https://www.youtube.com/watch?v=C--ToWC_qPE",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777431180/Victor_Miguel_L%C3%B3pez_Zapata_recqqc.jpg",
     "stage": "video_sent"
   },
@@ -23,6 +25,7 @@
     "role": ["Héctor"],
     "email": "diego.caicedo27@hotmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=SfSgDe0muxk",
+    "castingUrl": "",
     "photo": "",
     "stage": "video_sent"
   },
@@ -32,6 +35,7 @@
     "role": ["Juan David"],
     "email": "marulandacamilo392@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=5gAwXH8UfnU",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777432010/Camilo_Marulanda_zqqkbw.jpg",
     "stage": "video_sent"
   },
@@ -41,6 +45,7 @@
     "role": ["Juan David"],
     "email": "actorjohnmontoya@gmail.com",
     "reelUrl": "https://drive.google.com/file/d/1dP23Uenkbb2A_GpNS7YtjwTAw4dcGbnP/view",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473149/John_Montoya_hl3mmd.png",
     "stage": "video_sent"
   },
@@ -50,6 +55,7 @@
     "role": ["Juan David", "Héctor"],
     "email": "johnviveros21@gmail.com",
     "reelUrl": "https://res.cloudinary.com/dzbnuvdu6/video/upload/v1777471968/reeel_o62o7n.mp4",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777471889/John_Viveros_Salcedo_iiqa4x.jpg",
     "stage": "video_sent"
   },
@@ -59,6 +65,7 @@
     "role": ["Juan David", "Héctor"],
     "email": "chrystiantamayo25@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=M-HjWpIbEKc&t=4s",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777472809/Chrystian_Tamayo_hpyucz.jpg",
     "stage": "video_sent"
   },
@@ -68,6 +75,7 @@
     "role": ["Juan David", "Héctor"],
     "email": "chucho413@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=o3YnUMyO7eY&t=2s",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473149/David_Gil_msgxrq.jpg",
     "stage": "video_sent"
   },
@@ -77,6 +85,7 @@
     "role": ["Juan David"],
     "email": "felipegiraldo2628@gmail.com",
     "reelUrl": "",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473446/Felipe_Giraldo_delrx5.png",
     "stage": "contacted"
   },
@@ -86,6 +95,7 @@
     "role": [""],
     "email": "bernardorestrepo2025@gmail.com",
     "reelUrl": "",
+    "castingUrl": "",
     "photo": "",
     "stage": "applied"
   },
@@ -95,6 +105,7 @@
     "role": [""],
     "email": "joargo87@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=uQh-tsCMGA8",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473747/Jorge_Ort%C3%ADz_wsjqjx.jpg",
     "stage": "video_sent"
   },
@@ -104,6 +115,7 @@
     "role": [""],
     "email": "actorgustavorincon@gmail.com",
     "reelUrl": "",
+    "castingUrl": "",
     "photo": "",
     "stage": "applied"
   },
@@ -113,6 +125,7 @@
     "role": [""],
     "email": "hakas01@gmail.com",
     "reelUrl": "",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777474153/Hammer_hakas_mwjv35.jpg",
     "stage": "applied"
   },
@@ -122,6 +135,7 @@
     "role": [""],
     "email": "ador79@gmail.com",
     "reelUrl": "",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777474318/Armando_R%C3%ADos_jf6j5k.jpg",
     "stage": "applied"
   },
@@ -131,6 +145,7 @@
     "role": ["Héctor"],
     "email": "",
     "reelUrl": "",
+    "castingUrl": "",
     "photo": "",
     "stage": "applied"
   },
@@ -140,6 +155,7 @@
     "role": [""],
     "email": "jaimehernandoguerra@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=0xadNepLwJo",
+    "castingUrl": "",
     "photo": "",
     "stage": "applied"
   }
