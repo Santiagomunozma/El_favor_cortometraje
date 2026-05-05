@@ -84,7 +84,16 @@ export default function CastCard({ member, index }: Props) {
         )}
       </div>
 
-      <div style={{ padding: space.xl, overflow: "hidden", flex: 1 }}>
+      <div
+        className="hide-scrollbar"
+        style={{
+          padding: space.xl,
+          overflowY: "auto",
+          overflowX: "hidden",
+          flex: 1,
+          minHeight: 0,
+        }}
+      >
         <p
           style={{
             fontSize: fontSize.xxs,
@@ -106,6 +115,17 @@ export default function CastCard({ member, index }: Props) {
         >
           {member.name}
         </h3>
+        {typeof member.age === "number" && (
+          <p
+            style={{
+              fontSize: fontSize.sm,
+              color: colors.textMuted,
+              marginBottom: space.xs,
+            }}
+          >
+            {member.age} años
+          </p>
+        )}
         <p
           style={{
             fontSize: fontSize.sm,
@@ -207,7 +227,38 @@ export default function CastCard({ member, index }: Props) {
               e.currentTarget.style.color = colors.textMuted;
             }}
           >
-            Ver casting
+            Ver casting 1
+          </a>
+        )}
+        {member.castingUrl2 && (
+          <a
+            href={member.castingUrl2}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              textAlign: "center",
+              marginTop: space.lg,
+              padding: space.reelPadY,
+              border: `${borders.subtle} ${colors.border}`,
+              borderRadius: radius.md,
+              fontSize: fontSize.xs,
+              letterSpacing: letterSpacing.tight,
+              textTransform: "uppercase",
+              color: colors.textMuted,
+              textDecoration: "none",
+              transition: transition.reelLink,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = colors.accent;
+              e.currentTarget.style.color = colors.accent;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = colors.border;
+              e.currentTarget.style.color = colors.textMuted;
+            }}
+          >
+            Ver casting 2
           </a>
         )}
       </div>

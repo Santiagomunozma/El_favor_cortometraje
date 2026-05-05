@@ -15,9 +15,9 @@
     "role": ["Juan David"],
     "email": "ciudadceleste0@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=1ZtC-p33sNE",
-    "castingUrl": "https://www.youtube.com/watch?v=C--ToWC_qPE",
+    "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777431180/Victor_Miguel_L%C3%B3pez_Zapata_recqqc.jpg",
-    "stage": "video_sent"
+    "stage": "applied"
   },
   {
     "id": 3,
@@ -27,7 +27,7 @@
     "reelUrl": "https://www.youtube.com/watch?v=SfSgDe0muxk",
     "castingUrl": "",
     "photo": "",
-    "stage": "video_sent"
+    "stage": "applied"
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "reelUrl": "https://www.youtube.com/watch?v=5gAwXH8UfnU",
     "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777432010/Camilo_Marulanda_zqqkbw.jpg",
-    "stage": "video_sent"
+    "stage": "applied"
   },
   {
     "id": 5,
@@ -45,37 +45,42 @@
     "role": ["Juan David"],
     "email": "actorjohnmontoya@gmail.com",
     "reelUrl": "https://drive.google.com/file/d/1dP23Uenkbb2A_GpNS7YtjwTAw4dcGbnP/view",
-    "castingUrl": "",
+    "castingUrl": "https://drive.google.com/file/d/1RLTjdKAmu0RvBsp5YoV1rhVjJfM1iwgI/view?usp=drive_link",
+    "castingUrl2": "https://drive.google.com/file/d/1QpmA0Xi5mR6S5ZCff8ehn5IxU20sP0yB/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473149/John_Montoya_hl3mmd.png",
     "stage": "video_sent"
   },
   {
     "id": 6,
     "name": "John Viveros Salcedo",
+    "age": 34,
     "role": ["Juan David", "Héctor"],
     "email": "johnviveros21@gmail.com",
     "reelUrl": "https://res.cloudinary.com/dzbnuvdu6/video/upload/v1777471968/reeel_o62o7n.mp4",
     "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777471889/John_Viveros_Salcedo_iiqa4x.jpg",
-    "stage": "video_sent"
+    "stage": "applied"
   },
   {
     "id": 7,
     "name": "Chrystian Tamayo",
+    "age": 39,
     "role": ["Juan David", "Héctor"],
     "email": "chrystiantamayo25@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=M-HjWpIbEKc&t=4s",
     "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777472809/Chrystian_Tamayo_hpyucz.jpg",
-    "stage": "video_sent"
+    "stage": "applied"
   },
   {
     "id": 8,
     "name": "David Gil",
+    "age": 40,
     "role": ["Juan David", "Héctor"],
     "email": "chucho413@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=o3YnUMyO7eY&t=2s",
     "castingUrl": "https://drive.google.com/file/d/13nvgy9FSiPTa87Pj9goGtvpGpqY_YZu8/view?usp=drive_link",
+    "castingUrl2": "https://drive.google.com/file/d/1W-Cw1ge4C3CA2eH2hQG2ZGBuZ0NoFad-/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473149/David_Gil_msgxrq.jpg",
     "stage": "video_sent"
   },
@@ -86,8 +91,9 @@
     "email": "felipegiraldo2628@gmail.com",
     "reelUrl": "",
     "castingUrl": "https://drive.google.com/file/d/1RWa0zMrX_k11BcycarWhAjXdSakaly0g/view?usp=drive_link",
+    "castingUrl2": "https://drive.google.com/file/d/1ubCRK2hWA72rvHqipFCe_q2SXp9tUFnk/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473446/Felipe_Giraldo_delrx5.png",
-    "stage": "contacted"
+    "stage": "video_sent"
   },
   {
     "id": 10,
@@ -107,7 +113,7 @@
     "reelUrl": "https://www.youtube.com/watch?v=uQh-tsCMGA8",
     "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473747/Jorge_Ort%C3%ADz_wsjqjx.jpg",
-    "stage": "video_sent"
+    "stage": "applied"
   },
   {
     "id": 12,
@@ -122,12 +128,13 @@
   {
     "id": 13,
     "name": "Hammer hakas",
-    "role": [""],
+    "role": ["Juan David"],
     "email": "hakas01@gmail.com",
     "reelUrl": "",
     "castingUrl": "https://drive.google.com/file/d/1DTQFxR0vzSBHj84W3EsbSZ1FrcZSnPg3/view?usp=drive_link",
+    "castingUrl2": "https://drive.google.com/file/d/1yUOFuSVxso9roEcXAi5GZCfIAoxo7Q9v/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777474153/Hammer_hakas_mwjv35.jpg",
-    "stage": "applied"
+    "stage": "video_sent"
   },
   {
     "id": 14,
@@ -137,7 +144,7 @@
     "reelUrl": "",
     "castingUrl": "https://drive.google.com/file/d/1dPd0cE6Aipkz1ndBCsjUowUYmmSJbF39/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777474318/Armando_R%C3%ADos_jf6j5k.jpg",
-    "stage": "applied"
+    "stage": "video_sent"
   },
   {
     "id": 15,
@@ -146,8 +153,9 @@
     "email": "",
     "reelUrl": "",
     "castingUrl": "https://drive.google.com/file/d/18aVlm1nDzfZ4PANdD6DNANMFDlNtBtn1/view?usp=drive_link",
+    "castingUrl2": "https://drive.google.com/file/d/1ap8893GuhgqjAgHBNw7fvgk8sGh79RS-/view?usp=drive_link",
     "photo": "",
-    "stage": "applied"
+    "stage": "video_sent"
   },
   {
     "id": 16,

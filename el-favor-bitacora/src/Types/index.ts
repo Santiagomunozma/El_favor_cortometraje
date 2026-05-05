@@ -5,10 +5,12 @@ export type CastRole = "Juan David" | "Héctor";
 export interface CastMember {
   id: number;
   name: string;
+  age?: number;
   role: CastRole[];
   email: string;
   reelUrl: string;
   castingUrl: string;
+  castingUrl2: string;
   photo: string;
   stage: CastStage;
 }
