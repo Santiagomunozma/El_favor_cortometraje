@@ -7,10 +7,12 @@ const SCROLL_TRACK_STYLE: CSSProperties = {
   display: 'flex',
   gap: space['3xl'],
   overflowX: 'auto',
-  padding: `${space.md} ${space['5xl']} ${space['4xl']}`,
+  overflowY: 'hidden',
+  padding: `${space.md} clamp(12px, 4vw, 32px) ${space['4xl']}`,
   cursor: 'grab',
   scrollbarWidth: 'none',
   userSelect: 'none',
+  WebkitOverflowScrolling: 'touch',
 }
 
 export interface HorizontalCarouselProps {
@@ -34,7 +36,10 @@ export default function HorizontalCarousel({ itemMaxWidth, children }: Horizonta
         {Children.map(children, child => {
           if (!isValidElement(child)) return child
           return (
-            <div key={child.key} style={{ flex: '0 0 85vw', maxWidth: itemMaxWidth }}>
+            <div
+              key={child.key}
+              style={{ flex: '0 0 auto', width: itemMaxWidth, flexShrink: 0 }}
+            >
               {child}
             </div>
           )

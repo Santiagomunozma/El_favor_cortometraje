@@ -7,7 +7,13 @@ import { colors, layout, section } from '../../lib/designTokens'
 export default function Team() {
   return (
     <section id="equipo" style={{ backgroundColor: colors.bgBase, padding: section.paddingY }}>
-      <div style={{ maxWidth: layout.maxContent, margin: '0 auto', padding: section.contentPaddingX }}>
+      <div
+        style={{
+          maxWidth: layout.maxContent,
+          margin: '0 auto',
+          padding: `0 ${section.contentPaddingX}`,
+        }}
+      >
         <SectionTitle
           label="El equipo"
           title="Quiénes Somos"

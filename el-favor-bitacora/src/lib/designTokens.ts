@@ -101,13 +101,15 @@ export const layout = {
   heroTextMax: "520px",
   sectionDescMax: "480px",
   gridMinCard: "300px",
-  carouselItemCast: "200px",
-  carouselItemTeam: "280px",
+  /** Ancho de tarjeta casting: crece en móvil hasta un tope en escritorio. */
+  carouselItemCast: "min(88vw, 280px)",
+  carouselItemTeam: "min(88vw, 280px)",
 } as const;
 
 export const size = {
-  castCardHeight: "512px",
-  castPhotoHeight: "280px",
+  /** Evita que la tarjeta supere la ventana en landscape o móviles bajos. */
+  castCardHeight: "min(512px, 90dvh)",
+  castPhotoHeight: "min(280px, 42dvh)",
   playButton: "52px",
   dividerAccentW: "48px",
   dividerAccentH: "1px",
@@ -136,5 +138,5 @@ export const transition = {
 export const section = {
   paddingY: `${space["11xl"]} 0`,
   paddingPage: `${space["11xl"]} ${space["5xl"]}`,
-  contentPaddingX: `0 ${space["5xl"]}`,
+  contentPaddingX: "clamp(12px, 4vw, 32px)",
 } as const;

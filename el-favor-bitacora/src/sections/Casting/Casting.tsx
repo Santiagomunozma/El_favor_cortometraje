@@ -13,7 +13,13 @@ export default function Casting() {
 
   return (
     <section id="casting" style={{ backgroundColor: colors.bgSectionMuted, padding: section.paddingY }}>
-      <div style={{ maxWidth: layout.maxContent, margin: '0 auto', padding: section.contentPaddingX }}>
+      <div
+        style={{
+          maxWidth: layout.maxContent,
+          margin: '0 auto',
+          padding: `0 ${section.contentPaddingX}`,
+        }}
+      >
         <SectionTitle
           label="Proceso de selección"
           title="Casting"
