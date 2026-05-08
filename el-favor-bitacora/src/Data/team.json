@@ -1,72 +1,56 @@
 [
   {
     "id": 1,
-    "name": "Nombre Apellido",
-    "role": "Directora",
-    "bio": "Breve descripción de su rol en el proyecto.",
+    "name": "Karen Zapata Ceballos",
+    "role": "Productora",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
   },
   {
     "id": 2,
-    "name": "Nombre Apellido",
+    "name": " Laura Bolaño",
     "role": "Productora",
-    "bio": "Breve descripción de su rol en el proyecto.",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
   },
   {
     "id": 3,
-    "name": "Nombre Apellido",
-    "role": "Guionista",
-    "bio": "Breve descripción de su rol en el proyecto.",
+    "name": "Yeimira Henao",
+    "role": "Directora",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
   },
   {
     "id": 4,
-    "name": "Nombre Apellido",
-    "role": "Director de Fotografía",
-    "bio": "Breve descripción de su rol en el proyecto.",
+    "name": "Alexa Florez",
+    "role": "Productora",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
   },
   {
     "id": 5,
-    "name": "Nombre Apellido",
-    "role": "Sonidista",
-    "bio": "Breve descripción de su rol en el proyecto.",
+    "name": "Paulina Cardona",
+    "role": "Arte",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
   },
   {
     "id": 6,
-    "name": "Nombre Apellido",
-    "role": "Director de Fotografía",
-    "bio": "Breve descripción de su rol en el proyecto.",
+    "name": "Valeria Arias",
+    "role": "Arte",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
   },
   {
     "id": 7,
-    "name": "Nombre Apellido",
-    "role": "Director de Fotografía",
-    "bio": "Breve descripción de su rol en el proyecto.",
+    "name": "Carlos Andrés Chaves",
+    "role": "Cámara",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
   },
   {
     "id": 8,
-    "name": "Nombre Apellido",
-    "role": "Director de Fotografía",
-    "bio": "Breve descripción de su rol en el proyecto.",
+    "name": "Lucas Arboleda",
+    "role": "Sonido",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
   },
   {
     "id": 9,
-    "name": "Nombre Apellido",
-    "role": "Director de Fotografía",
-    "bio": "Breve descripción de su rol en el proyecto.",
-    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
-  },
-  {
-    "id": 10,
-    "name": "Nombre Apellido",
-    "role": "Director de Fotografía",
-    "bio": "Breve descripción de su rol en el proyecto.",
+    "name": "Stephanie Moore",
+    "role": "Montaje",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
   }
 ]

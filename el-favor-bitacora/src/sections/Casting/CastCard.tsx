@@ -115,17 +115,6 @@ export default function CastCard({ member, index }: Props) {
         >
           {member.name}
         </h3>
-        {typeof member.age === "number" && (
-          <p
-            style={{
-              fontSize: fontSize.sm,
-              color: colors.textMuted,
-              marginBottom: space.xs,
-            }}
-          >
-            {member.age} años
-          </p>
-        )}
         <p
           style={{
             fontSize: fontSize.sm,
