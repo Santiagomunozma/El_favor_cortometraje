@@ -1,13 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Jorge Ortíz",
-    "role": [""],
-    "email": "joargo87@gmail.com",
+    "name": "Juan Grajales",
+    "role": ["Héctor"],
+    "email": "cinemanuel16@gmail.com",
     "reelUrl": "",
-    "castingUrl": "",
-    "photo": "",
-    "stage": "applied"
+    "castingUrl": "https://drive.google.com/file/d/18aVlm1nDzfZ4PANdD6DNANMFDlNtBtn1/view?usp=drive_link",
+    "castingUrl2": "https://drive.google.com/file/d/1ap8893GuhgqjAgHBNw7fvgk8sGh79RS-/view?usp=drive_link",
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1778248736/Juan_M_Grajales_vqz08e.jpg",
+    "stage": "selected"
   },
   {
     "id": 2,
@@ -15,9 +16,10 @@
     "role": ["Juan David"],
     "email": "ciudadceleste0@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=1ZtC-p33sNE",
-    "castingUrl": "",
+    "castingUrl": "https://drive.google.com/file/d/1Z5DFrjEN1UkpxUKaQpdUUEKUPE-E9kC4/view?usp=sharing",
+    "castingUrl2": "https://drive.google.com/file/d/1tfMPYD9AIEuReGpreTpbZC1WaLRHW45q/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777431180/Victor_Miguel_L%C3%B3pez_Zapata_recqqc.jpg",
-    "stage": "applied"
+    "stage": "video_sent"
   },
   {
     "id": 3,
@@ -37,7 +39,7 @@
     "reelUrl": "https://www.youtube.com/watch?v=5gAwXH8UfnU",
     "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777432010/Camilo_Marulanda_zqqkbw.jpg",
-    "stage": "applied"
+    "stage": "contacted"
   },
   {
     "id": 5,
@@ -53,7 +55,6 @@
   {
     "id": 6,
     "name": "John Viveros Salcedo",
-    "age": 34,
     "role": ["Juan David", "Héctor"],
     "email": "johnviveros21@gmail.com",
     "reelUrl": "https://res.cloudinary.com/dzbnuvdu6/video/upload/v1777471968/reeel_o62o7n.mp4",
@@ -64,7 +65,6 @@
   {
     "id": 7,
     "name": "Chrystian Tamayo",
-    "age": 39,
     "role": ["Juan David", "Héctor"],
     "email": "chrystiantamayo25@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=M-HjWpIbEKc&t=4s",
@@ -75,7 +75,6 @@
   {
     "id": 8,
     "name": "David Gil",
-    "age": 40,
     "role": ["Juan David", "Héctor"],
     "email": "chucho413@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=o3YnUMyO7eY&t=2s",
@@ -89,41 +88,41 @@
     "name": "Felipe Giraldo",
     "role": ["Juan David"],
     "email": "felipegiraldo2628@gmail.com",
-    "reelUrl": "",
+    "reelUrl": "https://res.cloudinary.com/dzbnuvdu6/video/upload/v1778249339/Reel_Felipe_Giraldo_fyiv1o.mp4",
     "castingUrl": "https://drive.google.com/file/d/1RWa0zMrX_k11BcycarWhAjXdSakaly0g/view?usp=drive_link",
     "castingUrl2": "https://drive.google.com/file/d/1ubCRK2hWA72rvHqipFCe_q2SXp9tUFnk/view?usp=drive_link",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473446/Felipe_Giraldo_delrx5.png",
-    "stage": "video_sent"
+    "stage": "selected"
   },
   {
     "id": 10,
     "name": "Bernardo Restrepo",
-    "role": [""],
+    "role": ["Juan David"],
     "email": "bernardorestrepo2025@gmail.com",
     "reelUrl": "",
     "castingUrl": "",
-    "photo": "",
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1778249441/Bernardo_Restrepo_def69p.jpg",
     "stage": "applied"
   },
   {
     "id": 11,
     "name": "Jorge Ortíz",
-    "role": [""],
+    "role": ["Juan David"],
     "email": "joargo87@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=uQh-tsCMGA8",
     "castingUrl": "",
     "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1777473747/Jorge_Ort%C3%ADz_wsjqjx.jpg",
-    "stage": "applied"
+    "stage": "contacted"
   },
   {
     "id": 12,
-    "name": "Gustavo Rincon",
-    "role": [""],
-    "email": "actorgustavorincon@gmail.com",
-    "reelUrl": "",
-    "castingUrl": "",
-    "photo": "",
-    "stage": "applied"
+    "name": "Cristian Moreno",
+    "role": ["Juan David"],
+    "email": "3216924490",
+    "reelUrl": "https://www.instagram.com/p/DWUK0yqEdnC/",
+    "castingUrl": "https://drive.google.com/file/d/1lKQ5l3WkCYf6He-MctqcbUcbMiOxMue7/view?usp=drive_link",
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1778249936/Cristian_Moreno_srlwcf.jpg",
+    "stage": "video_sent"
   },
   {
     "id": 13,
@@ -139,7 +138,7 @@
   {
     "id": 14,
     "name": "Armando Ríos",
-    "role": [""],
+    "role": ["Juan David"],
     "email": "ador79@gmail.com",
     "reelUrl": "",
     "castingUrl": "https://drive.google.com/file/d/1dPd0cE6Aipkz1ndBCsjUowUYmmSJbF39/view?usp=drive_link",
@@ -148,23 +147,53 @@
   },
   {
     "id": 15,
-    "name": "Juan Grajales",
-    "role": ["Héctor"],
-    "email": "",
-    "reelUrl": "",
-    "castingUrl": "https://drive.google.com/file/d/18aVlm1nDzfZ4PANdD6DNANMFDlNtBtn1/view?usp=drive_link",
-    "castingUrl2": "https://drive.google.com/file/d/1ap8893GuhgqjAgHBNw7fvgk8sGh79RS-/view?usp=drive_link",
-    "photo": "",
-    "stage": "video_sent"
-  },
-  {
-    "id": 16,
     "name": "Jaime Guerra",
-    "role": [""],
+    "role": ["Héctor"],
     "email": "jaimehernandoguerra@gmail.com",
     "reelUrl": "https://www.youtube.com/watch?v=0xadNepLwJo",
     "castingUrl": "",
     "photo": "",
     "stage": "applied"
+  },
+  {
+    "id": 16,
+    "name": "Alexander Sanchez",
+    "role": ["Juan David"],
+    "email": "3043663333",
+    "reelUrl": "https://res.cloudinary.com/dzbnuvdu6/video/upload/v1778250237/Reel_Alexander_Sanchez_gusspl.mp4",
+    "castingUrl": "https://drive.google.com/file/d/1JKZkn4omNcDjVv0heuQV_EIqI1heV4bp/view?usp=sharing",
+    "castingUrl2": "https://drive.google.com/file/d/1ocG_3L-UEubJBju5DoFsAa6WzC7kNktD/view?usp=sharing",
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1778250247/Alexander_Sanchez_smlwvj.jpg",
+    "stage": "video_sent"
+  },
+  {
+    "id": 17,
+    "name": "Samer Elatrache",
+    "role": ["Héctor"],
+    "email": "3207733648",
+    "reelUrl": "https://www.youtube.com/watch?v=OTmbsgz7XbY",
+    "castingUrl": "https://drive.google.com/file/d/1u66G1M7YlSPvTFjm6q_2K9yKEInRHjjs/view?usp=sharing",
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1778250508/Samer_Elatrache_qlvtat.jpg",
+    "stage": "video_sent"
+  },
+  {
+    "id": 18,
+    "name": "Santiago Montoya",
+    "role": ["Héctor"],
+    "email": "3194717569",
+    "reelUrl": "https://res.cloudinary.com/dzbnuvdu6/video/upload/v1778250708/Reel%20Santiago%20Montoya.mp4",
+    "castingUrl": "",
+    "photo": "",
+    "stage": "contacted"
+  },
+  {
+    "id": 19,
+    "name": "Alejandro Mora",
+    "role": ["Héctor"],
+    "email": "3045926085",
+    "reelUrl": "",
+    "castingUrl": "",
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1778250827/Alejandro_Mora_jtdrzb.jpg",
+    "stage": "contacted"
   }
 ]
