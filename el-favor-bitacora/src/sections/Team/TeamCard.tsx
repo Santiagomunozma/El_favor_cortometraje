@@ -6,7 +6,6 @@ import {
   fontSize,
   fonts,
   letterSpacing,
-  lineHeight,
   radius,
   space,
   transition,
