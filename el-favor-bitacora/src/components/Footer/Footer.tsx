@@ -1,5 +1,17 @@
 import { useIsMobile } from "../../Hooks/useIsMobile";
-import { borders, colors, fontSize, fonts, layout, letterSpacing, space } from "../../lib/designTokens";
+import {
+  borders,
+  colors,
+  fontSize,
+  fonts,
+  layout,
+  letterSpacing,
+  space,
+} from "../../lib/designTokens";
+
+const UNIVERSITY_SHIELD_URL =
+  "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1778252052/Escudo_Politecnico_gv81u3.png";
+const UNIVERSITY_NAME = "Politécnico Colombiano Jaime Isaza Cadavid";
 
 export default function Footer() {
   const isMobile = useIsMobile();
@@ -10,8 +22,8 @@ export default function Footer() {
         backgroundColor: colors.bgFooter,
         borderTop: `${borders.subtle} ${colors.border}`,
         padding: isMobile
-          ? `${space['6xl']} ${space['4xl']} 28px`
-          : `${space['7xl']} ${space['5xl']} ${space['5xl']}`,
+          ? `${space["6xl"]} ${space["4xl"]} 28px`
+          : `${space["7xl"]} ${space["5xl"]} ${space["5xl"]}`,
         fontFamily: fonts.body,
       }}
     >
@@ -22,25 +34,53 @@ export default function Footer() {
             flexDirection: isMobile ? "column" : "row",
             justifyContent: "space-between",
             alignItems: isMobile ? "flex-start" : "flex-start",
-            marginBottom: space['6xl'],
-            gap: space['4xl'],
+            marginBottom: space["6xl"],
+            gap: space["4xl"],
           }}
         >
           <div>
             <p
               style={{
                 fontFamily: fonts.heading,
-                fontSize: fontSize['6xl'],
+                fontSize: fontSize["6xl"],
                 color: colors.textPrimary,
                 letterSpacing: letterSpacing.normal,
               }}
             >
               El <span style={{ color: colors.accent }}>Favor</span>
             </p>
-            <p style={{ fontSize: fontSize.md, color: colors.textMuted, marginTop: space.xs }}>
+            <p
+              style={{
+                fontSize: fontSize.md,
+                color: colors.textMuted,
+                marginTop: space.xs,
+              }}
+            >
               Lealtad. Culpa. Verdad.
             </p>
           </div>
+          {UNIVERSITY_SHIELD_URL && (
+            <div
+              style={{
+                alignSelf: isMobile ? "flex-start" : "center",
+                backgroundColor: "rgba(245, 240, 235, 0.94)",
+                borderRadius: "8px",
+                padding: "4px 8px",
+                border: `${borders.subtle} ${colors.border}`,
+              }}
+            >
+              <img
+                src={UNIVERSITY_SHIELD_URL}
+                alt={`Escudo ${UNIVERSITY_NAME}`}
+                style={{
+                  height: "56px",
+                  width: "auto",
+                  objectFit: "contain",
+                  display: "block",
+                }}
+              />
+            </div>
+          )}
           <div style={{ textAlign: isMobile ? "left" : "right" }}>
             <p
               style={{
@@ -71,14 +111,14 @@ export default function Footer() {
             width: "100%",
             height: "0.5px",
             backgroundColor: colors.border,
-            marginBottom: space['4xl'],
+            marginBottom: space["4xl"],
           }}
         />
 
-        <div style={{ marginBottom: space['5xl'] }}>
+        <div style={{ marginBottom: space["5xl"] }}>
           <p style={{ fontSize: fontSize.sm, color: colors.border }}>
             Desarrollo web{" "}
-            <span style={{ color: colors.textMuted }}>Santiago Muñoz</span>
+            <span style={{ color: colors.textMuted }}>Santiago Macchi</span>
           </p>
         </div>
 
@@ -87,6 +127,7 @@ export default function Footer() {
             display: "flex",
             flexDirection: isMobile ? "column" : "row",
             justifyContent: "space-between",
+            alignItems: isMobile ? "flex-start" : "center",
             gap: space.md,
           }}
         >
