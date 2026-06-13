@@ -1,0 +1,239 @@
+/* src/sections/FotoFija/FotoFijaPage.css */
+
+/* --- 1. Definición de Animaciones (Nuestra magia de ingeniería) --- */
+
+/* Keyframe para que aparezca de abajo hacia arriba y suave */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* Empieza 30px abajo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Termina en su sitio */
+  }
+}
+
+/* Keyframe para un glitch sutil al hover (Toque urbano/cyberpunk) */
+@keyframes textGlitch {
+  0% {
+    text-shadow:
+      0.5px 0 0 rgba(192, 57, 43, 0.75),
+      -0.5px -0.5px 0 rgba(46, 204, 113, 0.75);
+  }
+  100% {
+    text-shadow:
+      -0.5px 0 0 rgba(192, 57, 43, 0.75),
+      0.5px 0.5px 0 rgba(46, 204, 113, 0.75);
+  }
+}
+
+/* --- 2. Estilos del Layout Urbano --- */
+
+.foto-fija-layout {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  margin-top: 60px;
+  /* TOQUE URBANO: Fondo con textura de concreto sutil */
+  background-color: #0d0d0d;
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png"); /* Textura sutil enlosada */
+  color: #f5f0eb;
+  font-family: "Inter", sans-serif;
+}
+
+/* SECCIÓN IZQUIERDA: Visor Principal */
+.main-viewer-section {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px 40px 40px; /* Más padding arriba */
+  position: relative;
+  /* Animación de entrada para el visor principal */
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.1s; /* Un pelín de retraso */
+  opacity: 0; /* Empieza invisible */
+}
+
+.media-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Borde industrial que se mezcla con el fondo */
+  border: 1px solid rgba(245, 240, 235, 0.05);
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.focused-media {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  /* Sombra más dura y urbana */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  border-radius: 2px; /* Esquinas casi rectas, más agresivo */
+}
+
+/* Flechas de Navegación */
+.arrow-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(13, 13, 13, 0.5); /* Fondo sutil */
+  border: 1px solid rgba(245, 240, 235, 0.1);
+  color: rgba(245, 240, 235, 0.4);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 15px;
+  border-radius: 4px;
+}
+.arrow-nav:hover {
+  color: #f5f0eb;
+  background: rgba(192, 57, 43, 0.8); /* Fondo rojo en hover */
+  border-color: #c0392b;
+}
+.prev-arrow {
+  left: -10px;
+} /* Sacarlas un poco del contenedor */
+.next-arrow {
+  right: -10px;
+}
+
+/* Contador Urbano */
+.counter-badge {
+  position: absolute;
+  bottom: -40px;
+  right: 10px;
+  /* TIPOGRAFÍA URBANA: Monospace (como terminal de código) */
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: -1px;
+  color: rgba(192, 57, 43, 0.9); /* Rojo técnico */
+  background: rgba(0, 0, 0, 0.8);
+  padding: 4px 10px;
+  border: 1px solid rgba(192, 57, 43, 0.3);
+}
+
+/* SECCIÓN DERECHA: Barra Lateral */
+.sidebar-gallery-section {
+  flex: 1;
+  /* Borde más rudo */
+  border-left: 2px solid rgba(44, 44, 44, 0.7);
+  padding: 30px 20px;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  background: rgba(10, 10, 10, 0.5);
+  /* Animación de entrada para la barra lateral */
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s; /* Aparece un poco después que el visor */
+  opacity: 0;
+}
+
+/* Estilo del Scrollbar urbano */
+.sidebar-gallery-section::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar-gallery-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-gallery-section::-webkit-scrollbar-thumb {
+  background: rgba(192, 57, 43, 0.3);
+}
+.sidebar-gallery-section::-webkit-scrollbar-thumb:hover {
+  background: rgba(192, 57, 43, 0.7);
+}
+
+.sidebar-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Espaciado agresivo */
+  margin-bottom: 30px;
+  color: rgba(245, 240, 235, 0.7);
+  position: relative;
+  display: inline-block;
+}
+/* Subrayado parcial urbano */
+.sidebar-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #c0392b;
+}
+/* Efecto glitch al hover en el título */
+.sidebar-title:hover {
+  animation: textGlitch 0.2s linear infinite;
+  color: #f5f0eb;
+}
+
+.thumbnails-vertical-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Más espacio */
+}
+
+.thumb-container {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  /* Borde más rudo */
+  border: 1px solid rgba(245, 240, 235, 0.05);
+  transition: all 0.3s ease;
+}
+
+.thumb-container img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.4; /* Más oscuras por defecto */
+  transition: all 0.3s ease;
+  filter: grayscale(80%); /* Toque urbano desaturado */
+}
+
+/* Hover Urbano: la foto se ilumina y se agranda un poco */
+.thumb-container:hover img {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.active-thumb {
+  border-color: #c0392b; /* Tu rojo de acento */
+  box-shadow: 0 0 15px rgba(192, 57, 43, 0.5); /* Brillo de neón */
+}
+.active-thumb img {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+.play-icon-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Icono más técnico y agresivo */
+  background: rgba(192, 57, 43, 0.9);
+  color: #f5f0eb;
+  width: 35px;
+  height: 35px;
+  border-radius: 2px; /* Esquinas rectas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+}
+.thumb-container:hover .play-icon-overlay {
+  transform: translate(-50%, -50%) scale(1.1);
+}

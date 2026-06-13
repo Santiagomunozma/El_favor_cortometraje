@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { useIsMobile } from "../../Hooks/useIsMobile";
 
 const links = [
@@ -6,6 +7,7 @@ const links = [
   { label: "Casting", href: "#casting" },
   { label: "Quiénes Somos", href: "#equipo" },
   { label: "Ensayos", href: "#ensayos" },
+  { label: "Foto Fija", href: "/foto-fija", isRoute: true },
 ];
 
 export default function Navbar() {
@@ -14,6 +16,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
   const isMobile = useIsMobile();
+
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +30,12 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = links.map((l) => l.href.replace("#", ""));
+    if (!isHomePage) return;
+
+    const sectionIds = links
+      .filter((l) => !l.isRoute)
+      .map((l) => l.href.replace("#", ""));
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,12 +44,13 @@ export default function Navbar() {
       },
       { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
     );
+
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
-  }, []);
+  }, [isHomePage]);
 
   return (
     <>
@@ -78,7 +89,7 @@ export default function Navbar() {
         }}
       >
         <a
-          href="#inicio"
+          href={isHomePage ? "#inicio" : "/#inicio"}
           className="logo-link"
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
@@ -138,36 +149,56 @@ export default function Navbar() {
                 padding: 0,
               }}
             >
-              {links.map(({ label, href }) => {
-                const isActive = activeSection === href.replace("#", "");
+              {links.map(({ label, href, isRoute }) => {
+                // AQUÍ ESTÁ LA MAGIA CORREGIDA:
+                // Si es ruta, verificamos si el pathname coincide.
+                // Si es sección (hash), verificamos el activeSection.
+                const isActive = isRoute
+                  ? location.pathname === href
+                  : isHomePage && activeSection === href.replace("#", "");
+
+                const linkStyle: any = {
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "12px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  color: isActive ? "#F5F0EB" : "#4A4A4A",
+                  textDecoration: "none",
+                  paddingBottom: "3px",
+                  borderBottom: isActive
+                    ? "1px solid #C0392B"
+                    : "1px solid transparent",
+                  transition: "color 0.2s ease, border-color 0.2s ease",
+                };
+
+                const handleMouseEnter = (e: any) =>
+                  (e.currentTarget.style.color = "#F5F0EB");
+                const handleMouseLeave = (e: any) =>
+                  (e.currentTarget.style.color = isActive
+                    ? "#F5F0EB"
+                    : "#4A4A4A");
+
                 return (
                   <li key={href}>
-                    <a
-                      href={href}
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: "12px",
-                        letterSpacing: "2px",
-                        textTransform: "uppercase",
-                        color: isActive ? "#F5F0EB" : "#4A4A4A",
-                        textDecoration: "none",
-                        paddingBottom: "3px",
-                        borderBottom: isActive
-                          ? "1px solid #C0392B"
-                          : "1px solid transparent",
-                        transition: "color 0.2s ease, border-color 0.2s ease",
-                      }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.color = "#F5F0EB")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.color = isActive
-                          ? "#F5F0EB"
-                          : "#4A4A4A")
-                      }
-                    >
-                      {label}
-                    </a>
+                    {isRoute ? (
+                      <Link
+                        to={href}
+                        style={linkStyle}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        {label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={isHomePage ? href : `/${href}`}
+                        style={linkStyle}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        {label}
+                      </a>
+                    )}
                   </li>
                 );
               })}
@@ -199,31 +230,49 @@ export default function Navbar() {
               gap: "0",
             }}
           >
-            {links.map(({ label, href }) => {
-              const isActive = activeSection === href.replace("#", "");
+            {links.map(({ label, href, isRoute }) => {
+              // Aplicamos la misma corrección para la vista móvil
+              const isActive = isRoute
+                ? location.pathname === href
+                : isHomePage && activeSection === href.replace("#", "");
+
+              const mobileLinkStyle: any = {
+                display: "block",
+                padding: "14px 0",
+                borderBottom: "0.5px solid #1A1A1A",
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "13px",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: isActive ? "#C0392B" : "#4A4A4A",
+                textDecoration: "none",
+              };
+
               return (
                 <li key={href}>
-                  <a
-                    href={href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setMenuOpen(false);
-                      window.location.href = href;
-                    }}
-                    style={{
-                      display: "block",
-                      padding: "14px 0",
-                      borderBottom: "0.5px solid #1A1A1A",
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: "13px",
-                      letterSpacing: "2px",
-                      textTransform: "uppercase",
-                      color: isActive ? "#C0392B" : "#4A4A4A",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {label}
-                  </a>
+                  {isRoute ? (
+                    <Link
+                      to={href}
+                      onClick={() => setMenuOpen(false)}
+                      style={mobileLinkStyle}
+                    >
+                      {label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={isHomePage ? href : `/${href}`}
+                      onClick={(e) => {
+                        if (isHomePage) {
+                          e.preventDefault();
+                          window.location.href = href;
+                        }
+                        setMenuOpen(false);
+                      }}
+                      style={mobileLinkStyle}
+                    >
+                      {label}
+                    </a>
+                  )}
                 </li>
               );
             })}
