@@ -1,20 +1,18 @@
 /* src/sections/FotoFija/FotoFijaPage.css */
 
-/* --- 1. Definición de Animaciones (Nuestra magia de ingeniería) --- */
+/* --- 1. Definición de Animaciones (Mantenemos la física de entrada) --- */
 
-/* Keyframe para que aparezca de abajo hacia arriba y suave */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px); /* Empieza 30px abajo */
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
-    transform: translateY(0); /* Termina en su sitio */
+    transform: translateY(0);
   }
 }
 
-/* Keyframe para un glitch sutil al hover (Toque urbano/cyberpunk) */
 @keyframes textGlitch {
   0% {
     text-shadow:
@@ -28,61 +26,109 @@
   }
 }
 
-/* --- 2. Estilos del Layout Urbano --- */
+/* --- 2. Estilos Globales de la Página con Alma Urbana --- */
 
 .foto-fija-layout {
   display: flex;
   width: 100%;
   min-height: calc(100vh - 60px);
   margin-top: 60px;
-  /* TOQUE URBANO: Fondo con textura de concreto sutil */
+  /* Fondo con textura de concreto sutil */
   background-color: #0d0d0d;
-  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png"); /* Textura sutil enlosada */
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
   color: #f5f0eb;
   font-family: "Inter", sans-serif;
+  overflow: hidden;
+  position: relative;
 }
 
-/* SECCIÓN IZQUIERDA: Visor Principal */
+/* --- 3. [MANTENEMOS] SUPERPOSICIÓN GLOBAL DE FILM GRAIN (RUIDO) --- */
+
+.foto-fija-layout::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  background-repeat: repeat;
+  /* Bajísima opacidad (4%) para dar textura orgánica */
+  opacity: 0.04;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* --- 4. Visor Principal (Sección Izquierda) --- */
+
 .main-viewer-section {
   flex: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 40px 40px 40px; /* Más padding arriba */
+  padding: 60px 40px 40px 40px;
   position: relative;
-  /* Animación de entrada para el visor principal */
+  /* Animación de entrada */
   animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 0.1s; /* Un pelín de retraso */
-  opacity: 0; /* Empieza invisible */
+  animation-delay: 0.1s;
+  opacity: 0;
 }
 
 .media-wrapper {
   position: relative;
   width: 100%;
+  /* Mantenemos un alto fijo para el contenedor para centrar la media */
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Borde industrial que se mezcla con el fondo */
   border: 1px solid rgba(245, 240, 235, 0.05);
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.9); /* Fondo interno casi negro */
 }
 
+/* --- 4b. [MANTENEMOS] SUPERPOSICIÓN INTERNA DE VIGNETTE (VIÑETEADO) --- */
+
+.media-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* box-shadow inset masivo para oscurecer esquinas y centrar la mirada */
+  box-shadow:
+    inset 0 0 100px rgba(0, 0, 0, 0.8),
+    inset 0 0 150px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  z-index: 2; /* Por encima de la media */
+}
+
+/* [SOLUCIÓN AQUÍ] .focused-media: Respetando el material original */
 .focused-media {
+  /* ELIMINADO aspect-ratio: 21 / 9;  <-- Fuera sobre-ingeniería panorámica */
+
+  /* Definimos máximos flexibles para que la foto respire */
   max-width: 100%;
-  max-height: 70vh;
+  max-height: 100%; /* Ocupa el alto del media-wrapper (75vh) */
+
+  /* CAMBIADO a object-fit: contain; <-- Muestra la foto COMPLETA, sin recortes */
   object-fit: contain;
-  /* Sombra más dura y urbana */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-  border-radius: 2px; /* Esquinas casi rectas, más agresivo */
+
+  border-radius: 2px;
+  position: relative;
+  z-index: 1; /* Por debajo de la viñeta */
+
+  /* Sombra industrial sutil para despegarla del fondo */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Flechas de Navegación */
+/* Flechas de Navegación Industriales */
 .arrow-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(13, 13, 13, 0.5); /* Fondo sutil */
+  background: rgba(13, 13, 13, 0.6);
   border: 1px solid rgba(245, 240, 235, 0.1);
   color: rgba(245, 240, 235, 0.4);
   font-size: 2rem;
@@ -90,48 +136,51 @@
   transition: all 0.2s ease;
   padding: 15px;
   border-radius: 4px;
+  /* Por encima del viñeteado */
+  z-index: 10;
 }
 .arrow-nav:hover {
   color: #f5f0eb;
-  background: rgba(192, 57, 43, 0.8); /* Fondo rojo en hover */
+  background: rgba(192, 57, 43, 0.8);
   border-color: #c0392b;
 }
 .prev-arrow {
-  left: -10px;
-} /* Sacarlas un poco del contenedor */
+  left: -15px;
+} /* Ajustadas ligeramente hacia afuera */
 .next-arrow {
-  right: -10px;
+  right: -15px;
 }
 
-/* Contador Urbano */
+/* Contador Urbano Monospace */
 .counter-badge {
   position: absolute;
   bottom: -40px;
   right: 10px;
-  /* TIPOGRAFÍA URBANA: Monospace (como terminal de código) */
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
   font-size: 1rem;
   letter-spacing: -1px;
-  color: rgba(192, 57, 43, 0.9); /* Rojo técnico */
+  color: rgba(192, 57, 43, 0.9);
   background: rgba(0, 0, 0, 0.8);
   padding: 4px 10px;
   border: 1px solid rgba(192, 57, 43, 0.3);
+  z-index: 10;
 }
 
-/* SECCIÓN DERECHA: Barra Lateral */
+/* --- 5. Barra Lateral (Sección Derecha) --- */
+
 .sidebar-gallery-section {
   flex: 1;
-  /* Borde más rudo */
   border-left: 2px solid rgba(44, 44, 44, 0.7);
   padding: 30px 20px;
   max-height: calc(100vh - 60px);
   overflow-y: auto;
   background: rgba(10, 10, 10, 0.5);
-  /* Animación de entrada para la barra lateral */
+  /* Animación de entrada */
   animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 0.3s; /* Aparece un poco después que el visor */
+  animation-delay: 0.3s;
   opacity: 0;
+  z-index: 10;
 }
 
 /* Estilo del Scrollbar urbano */
@@ -153,13 +202,12 @@
   font-weight: 300;
   font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 3px; /* Espaciado agresivo */
+  letter-spacing: 3px;
   margin-bottom: 30px;
   color: rgba(245, 240, 235, 0.7);
   position: relative;
   display: inline-block;
 }
-/* Subrayado parcial urbano */
 .sidebar-title::after {
   content: "";
   position: absolute;
@@ -169,7 +217,6 @@
   height: 2px;
   background-color: #c0392b;
 }
-/* Efecto glitch al hover en el título */
 .sidebar-title:hover {
   animation: textGlitch 0.2s linear infinite;
   color: #f5f0eb;
@@ -178,14 +225,13 @@
 .thumbnails-vertical-grid {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Más espacio */
+  gap: 16px;
 }
 
 .thumb-container {
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  /* Borde más rudo */
   border: 1px solid rgba(245, 240, 235, 0.05);
   transition: all 0.3s ease;
 }
@@ -193,14 +239,13 @@
 .thumb-container img {
   width: 100%;
   height: 110px;
-  object-fit: cover;
+  object-fit: cover; /* Aquí sí mantenemos cover para que las miniaturas sean uniformes en la grilla */
   display: block;
-  opacity: 0.4; /* Más oscuras por defecto */
+  opacity: 0.4;
   transition: all 0.3s ease;
-  filter: grayscale(80%); /* Toque urbano desaturado */
+  filter: grayscale(80%);
 }
 
-/* Hover Urbano: la foto se ilumina y se agranda un poco */
 .thumb-container:hover img {
   opacity: 1;
   filter: grayscale(0%);
@@ -208,8 +253,8 @@
 }
 
 .active-thumb {
-  border-color: #c0392b; /* Tu rojo de acento */
-  box-shadow: 0 0 15px rgba(192, 57, 43, 0.5); /* Brillo de neón */
+  border-color: #c0392b;
+  box-shadow: 0 0 15px rgba(192, 57, 43, 0.5);
 }
 .active-thumb img {
   opacity: 1;
@@ -221,12 +266,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Icono más técnico y agresivo */
   background: rgba(192, 57, 43, 0.9);
   color: #f5f0eb;
   width: 35px;
   height: 35px;
-  border-radius: 2px; /* Esquinas rectas */
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
