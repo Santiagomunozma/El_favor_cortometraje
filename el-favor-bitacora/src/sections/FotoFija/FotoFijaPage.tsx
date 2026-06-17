@@ -1,14 +1,44 @@
 import { useState } from "react";
-// Importamos los datos mock que ya tienes configurados en src/Data/mediaData.ts
+import { motion, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "../../Hooks/useIsMobile";
+// Asegúrate de que esta ruta apunte correctamente a tu archivo mediaData.ts
 import { projectMedia } from "../../Data/mediaData";
-import "./FotoFijaPage.css";
+import {
+  colors,
+  fontSize,
+  fonts,
+  lineHeight,
+  space,
+} from "../../lib/designTokens";
 
-export default function FotoFijaPage() {
-  // Estado para controlar qué foto o video estamos viendo
+// Variante de animación suave
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay, ease: "easeOut" as const },
+  }),
+};
+
+export default function FotoFijaSection() {
+  const isMobile = useIsMobile();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Safe-guard por si no hay datos
+  if (!projectMedia || projectMedia.length === 0) {
+    return (
+      <div
+        style={{ color: "white", padding: space["4xl"], textAlign: "center" }}
+      >
+        Cargando bitácora de producción...
+      </div>
+    );
+  }
+
   const currentItem = projectMedia[currentIndex];
 
-  // Funciones de navegación con aritmética modular para el bucle infinito
+  // Funciones de navegación con bucle infinito
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % projectMedia.length);
   };
@@ -19,91 +49,244 @@ export default function FotoFijaPage() {
     );
   };
 
-  // Safe-guard por si no hay datos cargados
-  if (!currentItem)
-    return <div className="loading">Cargando bitácora de producción...</div>;
-
   return (
-    // Ya no hay botón flotante. La navegación depende del Navbar unificado.
-    <section className="foto-fija-layout">
-      {/* SECCIÓN IZQUIERDA: Visor Principal con animación fadeInUp */}
-      <div className="main-viewer-section">
-        <div className="media-wrapper">
-          {/* Renderizado condicional según tipo de media */}
-          {currentItem.type === "image" ? (
-            <img
-              src={currentItem.url}
-              alt={`Bitácora Visual - ${currentIndex + 1}`}
-              className="focused-media"
-            />
-          ) : (
-            // Añadimos 'key' al video para forzar el re-render cuando cambia la URL
-            <video
-              key={currentItem.url}
-              controls
-              autoPlay
-              className="focused-media"
-            >
-              <source src={currentItem.url} type="video/mp4" />
-              Tu navegador no soporta videos.
-            </video>
-          )}
+    <section
+      id="foto-fija"
+      style={{
+        backgroundColor: colors.bgBase,
+        padding: isMobile
+          ? `${space["9xl"]} ${space.md}`
+          : `${space["10xl"]} ${space["4xl"]}`,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      {/* ENCABEZADO ESTILO PELÍCULA */}
+      <motion.div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+          marginBottom: space["4xl"],
+        }}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        custom={0}
+      >
+        <h2
+          style={{
+            color: colors.textPrimary,
+            fontSize: isMobile ? fontSize["3xl"] : fontSize["5xl"],
+            fontFamily: fonts.heading,
+            letterSpacing: "4px",
+            lineHeight: lineHeight.none,
+            textAlign: "center",
+            textTransform: "uppercase",
+          }}
+        >
+          BITÁCORA <span style={{ color: colors.accent }}>|</span> FOTO FIJA
+        </h2>
+      </motion.div>
 
-          {/* Flechas de navegación con estilos industriales */}
+      {/* CONTENEDOR PRINCIPAL */}
+      <motion.div
+        style={{
+          width: "100%",
+          maxWidth: "1000px",
+          display: "flex",
+          flexDirection: "column",
+          gap: space.md,
+        }}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        custom={0.2}
+      >
+        {/* VISOR PRINCIPAL CON EFECTOS */}
+        <div
+          style={{
+            width: "100%",
+            aspectRatio: isMobile ? "4 / 3" : "16 / 9",
+            backgroundColor: "#000",
+            position: "relative",
+            // EL BORDE ROJO Y ESQUINAS AFILADAS
+            border: `2px solid ${colors.accent}`,
+            borderRadius: 0,
+            overflow: "hidden",
+            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.7)",
+          }}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentItem.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              style={{ width: "100%", height: "100%" }}
+            >
+              {currentItem.type === "image" ? (
+                <img
+                  src={currentItem.url}
+                  alt={`Bitácora Visual - ${currentIndex + 1}`}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              ) : (
+                <video
+                  key={currentItem.url}
+                  controls
+                  autoPlay
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    backgroundColor: "#000",
+                  }}
+                >
+                  <source src={currentItem.url} type="video/mp4" />
+                  Tu navegador no soporta videos.
+                </video>
+              )}
+            </motion.div>
+          </AnimatePresence>
+
+          {/* FLECHAS DE NAVEGACIÓN */}
           <button
-            className="arrow-nav prev-arrow"
             onClick={handlePrev}
-            aria-label="Anterior"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: space.sm,
+              transform: "translateY(-50%)",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              color: "white",
+              border: `1px solid ${colors.accent}`,
+              padding: "10px 15px",
+              cursor: "pointer",
+              fontSize: "1.5rem",
+              zIndex: 10,
+            }}
           >
             ❮
           </button>
           <button
-            className="arrow-nav next-arrow"
             onClick={handleNext}
-            aria-label="Siguiente"
+            style={{
+              position: "absolute",
+              top: "50%",
+              right: space.sm,
+              transform: "translateY(-50%)",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              color: "white",
+              border: `1px solid ${colors.accent}`,
+              padding: "10px 15px",
+              cursor: "pointer",
+              fontSize: "1.5rem",
+              zIndex: 10,
+            }}
           >
             ❯
           </button>
 
-          {/* Contador abajo a la derecha con tipografía técnica (Monospace) */}
-          <div className="counter-badge">
-            <span style={{ color: "#F5F0EB" }}>REC:</span> {currentIndex + 1}{" "}
-            <span style={{ opacity: 0.5 }}>//</span> {projectMedia.length}
+          {/* CONTADOR TIPO "REC" CÁMARA */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: space.md,
+              right: space.md,
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              padding: "4px 12px",
+              fontFamily: "monospace",
+              fontSize: fontSize.sm,
+              fontWeight: "bold",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              zIndex: 10,
+            }}
+          >
+            <span
+              style={{ color: colors.accent, animation: "blink 1.5s infinite" }}
+            >
+              REC:
+            </span>{" "}
+            <span style={{ color: "#F5F0EB" }}>{currentIndex + 1}</span>{" "}
+            <span style={{ color: "rgba(255,255,255,0.5)" }}>//</span>{" "}
+            <span style={{ color: "#F5F0EB" }}>{projectMedia.length}</span>
           </div>
         </div>
-      </div>
 
-      {/* SECCIÓN DERECHA: Barra Lateral con animación fadeInUp staggered */}
-      <div className="sidebar-gallery-section">
-        <h3 className="sidebar-title">
-          BITÁCORA <span style={{ color: "#C0392B" }}>|</span> MATERIAL
-        </h3>
+        {/* TIRA DE MINIATURAS (Thumbnails) */}
+        <div
+          style={{
+            display: "flex",
+            gap: space.sm,
+            overflowX: "auto",
+            paddingBottom: space.sm,
+            scrollbarWidth: "none", // Oculta barra en Firefox
+            msOverflowStyle: "none", // Oculta barra en IE/Edge
+          }}
+        >
+          {projectMedia.map((item, index) => {
+            const isActive = index === currentIndex;
+            return (
+              <div
+                key={item.id}
+                onClick={() => setCurrentIndex(index)}
+                style={{
+                  flex: "0 0 auto",
+                  position: "relative",
+                  width: isMobile ? "90px" : "140px",
+                  aspectRatio: "16 / 9",
+                  cursor: "pointer",
+                  backgroundColor: "#000",
+                  // BORDE ROJO EN LA MINIATURA ACTIVA
+                  border: isActive
+                    ? `2px solid ${colors.accent}`
+                    : `2px solid transparent`,
+                  opacity: isActive ? 1 : 0.5,
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <img
+                  src={
+                    item.type === "image"
+                      ? item.url
+                      : "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=300&h=110&fit=crop" // Placeholder genérico para videos
+                  }
+                  alt={`Miniatura ${index + 1}`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                  }}
+                />
 
-        <div className="thumbnails-vertical-grid">
-          {projectMedia.map((item, index) => (
-            <div
-              key={item.id}
-              // Clase dinámica si la miniatura es la activa
-              className={`thumb-container ${index === currentIndex ? "active-thumb" : ""}`}
-              onClick={() => setCurrentIndex(index)}
-            >
-              <img
-                // Si es video, mostramos un thumbnail predefinido (puedes cambiarlo luego por tus fotos reales)
-                src={
-                  item.type === "image"
-                    ? item.url
-                    : "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=300&h=110&fit=crop"
-                }
-                alt={`Miniatura bitácora ${index + 1}`}
-              />
-              {/* Superposición del icono de play si es un video */}
-              {item.type === "video" && (
-                <div className="play-icon-overlay">▶</div>
-              )}
-            </div>
-          ))}
+                {/* ICONO DE PLAY SI ES VIDEO */}
+                {item.type === "video" && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      color: "white",
+                      fontSize: "20px",
+                      textShadow: "0 2px 4px rgba(0,0,0,0.8)",
+                    }}
+                  >
+                    ▶
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

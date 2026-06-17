@@ -9,25 +9,25 @@
     "id": 2,
     "name": " Laura Bolaño",
     "role": "Co-directora",
-    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1781656860/Gemini_Generated_Image_8qpvu68qpvu68qpv_h3wagm.png"
   },
   {
     "id": 3,
     "name": "Yeimira Henao",
     "role": "Directora de actores",
-    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1781656439/DSC05286_wwhi1g.jpg"
   },
   {
     "id": 4,
     "name": "Alexa Florez",
     "role": "Productora",
-    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1781656071/IMG_2832.JPG_yom7kq.jpg"
   },
   {
     "id": 5,
     "name": "Paulina Cardona",
     "role": "Arte",
-    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1781663435/DSC05331_bcy1y3.jpg"
   },
   {
     "id": 6,
@@ -39,7 +39,7 @@
     "id": 7,
     "name": "Carlos Andrés Chaves",
     "role": "Cámara",
-    "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1781663432/DSC05350_vdo7qp.jpg"
   },
   {
     "id": 8,
@@ -52,5 +52,11 @@
     "name": "Stephanie Moore",
     "role": "Montaje",
     "photo": "https://res.cloudinary.com/TU_CLOUD/image/upload/foto.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Valeria Arango",
+    "role": "Docente",
+    "photo": "https://res.cloudinary.com/dzbnuvdu6/image/upload/v1781663430/DSC05359_yn7hmk.jpg"
   }
 ]

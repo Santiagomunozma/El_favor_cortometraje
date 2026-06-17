@@ -7,6 +7,7 @@ import Team from "./sections/Team/Team";
 import Rehearsals from "./sections/Rehearsals/Rehearsals";
 import Footer from "./components/Footer/Footer";
 import FotoFijaPage from "./sections/FotoFija/FotoFijaPage";
+import TeaserSection from "./sections/Teaser/TeaserSection";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           element={
             <main>
               <Hero />
+              <TeaserSection />
               <Casting />
               <Team />
               <Rehearsals />

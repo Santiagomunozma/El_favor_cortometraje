@@ -39,7 +39,8 @@ export default function TeamCard({ member, index }: Props) {
       <div
         style={{
           width: "100%",
-          aspectRatio: "1 / 1",
+          /* 1. CAMBIO: Pasamos de 1/1 (cuadrado) a 3/4 (vertical/retrato) */
+          aspectRatio: "3 / 4",
           backgroundColor: colors.bgBase,
           overflow: "hidden",
           display: "flex",
@@ -55,6 +56,8 @@ export default function TeamCard({ member, index }: Props) {
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              /* 2. CAMBIO: Anclamos el recorte a la parte inferior para no perder la plaqueta */
+              objectPosition: "center 85%",
               transition: transition.transform,
             }}
             onMouseEnter={(e) =>
