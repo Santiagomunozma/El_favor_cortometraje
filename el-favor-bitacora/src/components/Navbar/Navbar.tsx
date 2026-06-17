@@ -7,7 +7,7 @@ const links = [
   { label: "Casting", href: "#casting" },
   { label: "Quiénes Somos", href: "#equipo" },
   { label: "Ensayos", href: "#ensayos" },
-  { label: "Foto Fija", href: "/foto-fija", isRoute: true },
+  { label: "Detrás de cámara", href: "/detras-de-camara", isRoute: true },
 ];
 
 export default function Navbar() {

@@ -88,7 +88,8 @@ export default function FotoFijaSection() {
             textTransform: "uppercase",
           }}
         >
-          BITÁCORA <span style={{ color: colors.accent }}>|</span> FOTO FIJA
+          BITÁCORA <span style={{ color: colors.accent }}>|</span> DETRÁS DE
+          CÁMARA
         </h2>
       </motion.div>
 
@@ -252,36 +253,10 @@ export default function FotoFijaSection() {
                 }}
               >
                 <img
-                  src={
-                    item.type === "image"
-                      ? item.url
-                      : "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=300&h=110&fit=crop" // Placeholder genérico para videos
-                  }
+                  src={item.url}
                   alt={`Miniatura ${index + 1}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
-
-                {/* ICONO DE PLAY SI ES VIDEO */}
-                {item.type === "video" && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      color: "white",
-                      fontSize: "20px",
-                      textShadow: "0 2px 4px rgba(0,0,0,0.8)",
-                    }}
-                  >
-                    ▶
-                  </div>
-                )}
               </div>
             );
           })}
