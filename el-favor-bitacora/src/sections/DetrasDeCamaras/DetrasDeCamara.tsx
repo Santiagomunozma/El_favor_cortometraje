@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "../../Hooks/useIsMobile";
 // Asegúrate de que esta ruta apunte correctamente a tu archivo mediaData.ts
@@ -24,6 +24,31 @@ const fadeUp = {
 export default function FotoFijaSection() {
   const isMobile = useIsMobile();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // NUEVO: Referencia para el contenedor de las miniaturas
+  const thumbnailsRef = useRef<HTMLDivElement>(null);
+
+  // NUEVO: Efecto para auto-scrollear la miniatura activa al centro
+  useEffect(() => {
+    if (thumbnailsRef.current) {
+      const container = thumbnailsRef.current;
+      const activeThumbnail = container.children[currentIndex] as HTMLElement;
+
+      if (activeThumbnail) {
+        // Calculamos la posición para dejar la miniatura justo en el medio
+        const scrollPosition =
+          activeThumbnail.offsetLeft -
+          container.offsetWidth / 2 +
+          activeThumbnail.offsetWidth / 2;
+
+        // Hacemos que el contenedor haga un scroll suave hasta esa posición
+        container.scrollTo({
+          left: scrollPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [currentIndex]); // Se ejecuta cada vez que cambia la foto
 
   // Safe-guard por si no hay datos
   if (!projectMedia || projectMedia.length === 0) {
@@ -115,7 +140,6 @@ export default function FotoFijaSection() {
             aspectRatio: isMobile ? "4 / 3" : "16 / 9",
             backgroundColor: "#000",
             position: "relative",
-            // EL BORDE ROJO Y ESQUINAS AFILADAS
             border: `2px solid ${colors.accent}`,
             borderRadius: 0,
             overflow: "hidden",
@@ -131,28 +155,11 @@ export default function FotoFijaSection() {
               transition={{ duration: 0.3 }}
               style={{ width: "100%", height: "100%" }}
             >
-              {currentItem.type === "image" ? (
-                <img
-                  src={currentItem.url}
-                  alt={`Bitácora Visual - ${currentIndex + 1}`}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              ) : (
-                <video
-                  key={currentItem.url}
-                  controls
-                  autoPlay
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    backgroundColor: "#000",
-                  }}
-                >
-                  <source src={currentItem.url} type="video/mp4" />
-                  Tu navegador no soporta videos.
-                </video>
-              )}
+              <img
+                src={currentItem.url}
+                alt={`Bitácora Visual - ${currentIndex + 1}`}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
             </motion.div>
           </AnimatePresence>
 
@@ -222,13 +229,15 @@ export default function FotoFijaSection() {
 
         {/* TIRA DE MINIATURAS (Thumbnails) */}
         <div
+          ref={thumbnailsRef} // NUEVO: Conectamos la referencia aquí
           style={{
             display: "flex",
             gap: space.sm,
             overflowX: "auto",
             paddingBottom: space.sm,
-            scrollbarWidth: "none", // Oculta barra en Firefox
-            msOverflowStyle: "none", // Oculta barra en IE/Edge
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            scrollBehavior: "smooth", // Asegura que el scroll manual también sea suave
           }}
         >
           {projectMedia.map((item, index) => {
@@ -244,7 +253,6 @@ export default function FotoFijaSection() {
                   aspectRatio: "16 / 9",
                   cursor: "pointer",
                   backgroundColor: "#000",
-                  // BORDE ROJO EN LA MINIATURA ACTIVA
                   border: isActive
                     ? `2px solid ${colors.accent}`
                     : `2px solid transparent`,
